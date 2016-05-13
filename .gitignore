@@ -1,0 +1,5 @@
+/qqmusic.sqlite
+*.pyc
+__pycache__/
+
+
