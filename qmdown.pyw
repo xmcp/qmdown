@@ -124,7 +124,7 @@ def download(*_):
     def normalize(path):
         for ch in ['\\','/',':','?','"','<','>','|']:
             path=path.replace(ch,'-')
-        if path.endswith('.tm3'):
+        if path.endswith('.tm3') or path.endswith('.tm0'):
             path=path[:-4]+'.mp3'
         return path
     
