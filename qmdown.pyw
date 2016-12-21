@@ -55,8 +55,8 @@ def connect(*_):
     msg.set('下载音乐数据库……')
     tk.update()
     #get music db
-    base=host+link['href']+'/Documents'
-    res=s.get(base+'/qqmusic.sqlite')
+    base=host+link['href']+'/Library/Application%20Support/com.tencent.QQMusic'
+    res=s.get(base+'/iDB/qqmusic.sqlite')
     if res.status_code==404:
         return msg.set('音乐数据库不存在')
     elif res.status_code!=200:
@@ -133,7 +133,7 @@ def download(*_):
     name,uri=songs[l2.curselection()[0]]
     msg.set('正在下载……')
     tk.update()
-    res=s.get(base+uri)
+    res=s.get(base+'/iData'+uri)
     with open(os.path.join(homedir,normalize(name+os.path.splitext(uri)[1])),'wb') as f:
         f.write(res.content)
     os.startfile(homedir)
